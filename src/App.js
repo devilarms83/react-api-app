@@ -23,13 +23,22 @@ export default function App() {
   }
   console.table(users)
 
+  const list = users.map(user => {
+    return (
+      <li key={user.login.uuid}>
+        {user.name.first} | {user.name.last} | {user.email}
+      </li>
+    )
+  })
+
   return (
     <div>
       <h2>Fetch User Data</h2>
       <button onClick={() => fetchUsers()}>
         Fetch Data
       </button>
-      <button>Load Data</button>
+      <button onClick={() => setUsers([])}>Reset</button>
+      <ul>{list}</ul>
 
     </div>
   );
