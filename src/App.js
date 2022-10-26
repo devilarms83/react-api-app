@@ -4,8 +4,12 @@ import "./style.css";
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      <h2>Fetch User Data</h2>
+      <button onClick={() => console.log('hi')}>
+        Fetch Data
+      </button>
+      <button>Load Data</button>
+
     </div>
   );
 }
