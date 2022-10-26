@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 // import axios from 'axios'
 
@@ -8,6 +8,10 @@ export default function App() {
   create a function that fetches the data on click
   */
   const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetchUsers()
+  }, [])
 
   const fetchUsers = async () => {
     const apiUrl = 'https://randomuser.me/api/?results=10'
@@ -21,7 +25,7 @@ export default function App() {
       console.log(err)
     }
   }
-  console.table(users)
+  // console.table(users)
 
   const list = users.map(user => {
     return (
@@ -34,9 +38,9 @@ export default function App() {
   return (
     <div>
       <h2>Fetch User Data</h2>
-      <button onClick={() => fetchUsers()}>
+      {/* <button onClick={() => fetchUsers()}>
         Fetch Data
-      </button>
+      </button> */}
       <button onClick={() => setUsers([])}>Reset</button>
       <ul>{list}</ul>
 
